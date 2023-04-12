@@ -76,7 +76,7 @@ namespace weatherapp
                 country.Text = ItemsSource.location.country;
                 temp_c.Text = ItemsSource.current.temp_c.ToString();
                 text.Text = ItemsSource.current.condition.text;
-
+                Console.WriteLine(ItemsSource.current.condition.text);
 
             }
 
