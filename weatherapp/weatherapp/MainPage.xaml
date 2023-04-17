@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="weatherapp.MainPage">
+             x:Class="weatherapp.MainPage"
+             NavigationPage.HasNavigationBar="False">
 
     <StackLayout>
-        <Entry x:Name="search_city" Placeholder="Wyszukaj Miasto" />
+        <Entry x:Name="search_city" Placeholder="Wyszukaj Miasto" Completed="search_city_button_ClickedAsync"/>
         <Button x:Name="search_city_button" Clicked="search_city_button_ClickedAsync"/>
 
 
@@ -28,7 +29,11 @@
             <Label x:Name="region"  Text="" />
             <Label x:Name="country"  Text="" />
             <Label x:Name="temp_c"  Text="" />
+            <Label x:Name="pressure"  Text="" />
+            <Label x:Name="humidity"  Text="" />
+            <Label x:Name="wind" Text="" />
             <Label x:Name="text" Text="" />
+            <Image x:Name="weather_icon" Source=""/>
         </StackLayout>
 
 

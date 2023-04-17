@@ -21,8 +21,7 @@ namespace weatherapp
         public MainPage()
         {
             InitializeComponent();
-            Api_Key = "43305e15ed494be7918123207211610";
-
+            Api_Key = login_page.API_KEYreal;
 
         }
 
@@ -84,12 +83,16 @@ namespace weatherapp
                 else
                 {
                     region.Text = "";
-                    region.IsVisible = false;
+                    region.IsVisible = false; 
 
                 }
                 country.Text = ItemsSource.location.country;
                 temp_c.Text = ItemsSource.current.temp_c.ToString();
+                pressure.Text = ItemsSource.current.pressure_mb.ToString();
+                humidity.Text = ItemsSource.current.humidity.ToString();
+                wind.Text = ItemsSource.current.wind_kph.ToString();
                 text.Text = ItemsSource.current.condition.text;
+                weather_icon.Source = "https:" + ItemsSource.current.condition.icon;
 
 
             }

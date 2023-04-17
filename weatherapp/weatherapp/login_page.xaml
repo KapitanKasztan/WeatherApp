@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="weatherapp.login_page"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+            <Entry 
+                   x:Name="api_entry"
+                   Placeholder="Wprowadź klucz api"
+                    Completed="sendapiAsync"/>
+            <Button Clicked="sendapiAsync" Text="Enter"/>
+            <Label IsVisible="false" Text="" x:Name="error_label" VerticalTextAlignment="Center" TextColor="Red" FontSize="Medium" Padding="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
