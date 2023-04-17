@@ -73,7 +73,7 @@ namespace weatherapp
 
                 ItemsSource = weather_data;
 
-                namelb.Text = "City:";
+                
                 name.Text = ItemsSource.location.name;
                 if(ItemsSource.location.region != null && ItemsSource.location.region != "")
                 {
