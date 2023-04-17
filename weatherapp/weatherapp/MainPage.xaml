@@ -2,11 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="weatherapp.MainPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+                          BackgroundImageSource="https://images.pexels.com/photos/2175952/pexels-photo-2175952.jpeg
+             "
+             Padding="10,30,10,10"
+             >
 
     <StackLayout>
-        <Entry x:Name="search_city" Placeholder="Wyszukaj Miasto" Completed="search_city_button_ClickedAsync"/>
-        <Button x:Name="search_city_button" Clicked="search_city_button_ClickedAsync"/>
+        <Entry x:Name="search_city" Placeholder="Wyszukaj Miasto" Completed="search_city_button_ClickedAsync" TextColor="#262626" PlaceholderColor="#262626"/>
+        <Button x:Name="search_city_button" Clicked="search_city_button_ClickedAsync" Text="Search" TextColor="#262626" BackgroundColor="White" CornerRadius="20"/>
 
 
         <ListView x:Name="searched_city_list" ItemTapped="City_choseAsync">
@@ -14,7 +18,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
-                            <Label Text="{Binding country}" />
+                            <Label Text="{Binding country}" TextColor="#262626" FontSize="Body" FontAttributes="Bold"/>
                             <Label Text="{Binding name}"/>
 
                         </StackLayout>
@@ -25,15 +29,23 @@
 
 
         <StackLayout x:Name="result" >
-            <Label x:Name="name" Text=""/>
+           
+            <Label x:Name="name" Text="" TextColor="#262626" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label x:Name="regionlb"  Text="" TextColor="#262626" FontSize="Large" />
             <Label x:Name="region"  Text="" />
+            <Label x:Name="countrylb"  Text="" TextColor="#262626" FontSize="Large" />
             <Label x:Name="country"  Text="" />
+            <Label x:Name="temp_clb"  Text="" TextColor="#262626" FontSize="Large"/>
             <Label x:Name="temp_c"  Text="" />
+            <Label x:Name="pressurelb"  Text="" TextColor="#262626" FontSize="Large"/>
             <Label x:Name="pressure"  Text="" />
+            <Label x:Name="humiditylb"  Text="" TextColor="#262626" FontSize="Large"/>
             <Label x:Name="humidity"  Text="" />
+            <Label x:Name="windlb" Text="" TextColor="#262626" FontSize="Large"/>
             <Label x:Name="wind" Text="" />
+            <Label x:Name="textlb" Text="" TextColor="#262626" FontSize="Large"/>
             <Label x:Name="text" Text="" />
-            <Image x:Name="weather_icon" Source=""/>
+            <Image x:Name="weather_icon" Source="" />
         </StackLayout>
 
 

@@ -73,24 +73,35 @@ namespace weatherapp
 
                 ItemsSource = weather_data;
 
+                namelb.Text = "City:";
                 name.Text = ItemsSource.location.name;
                 if(ItemsSource.location.region != null && ItemsSource.location.region != "")
                 {
                     region.IsVisible = true;
+                    regionlb.IsVisible = true;
                     region.Text = ItemsSource.location.region;
+                    regionlb.Text = "Region:";
 
                 }
                 else
                 {
                     region.Text = "";
-                    region.IsVisible = false; 
+                    regionlb.Text = "";
+                    region.IsVisible = false;
+                    regionlb.IsVisible = false;
 
                 }
+                countrylb.Text = "Country:";
                 country.Text = ItemsSource.location.country;
+                temp_clb.Text = "Temperature:";
                 temp_c.Text = ItemsSource.current.temp_c.ToString();
+                pressurelb.Text = "Presure:";
                 pressure.Text = ItemsSource.current.pressure_mb.ToString();
+                humiditylb.Text = "Humidity:";
                 humidity.Text = ItemsSource.current.humidity.ToString();
+                windlb.Text = "Wind:";
                 wind.Text = ItemsSource.current.wind_kph.ToString();
+                textlb.Text = "Weather:";
                 text.Text = ItemsSource.current.condition.text;
                 weather_icon.Source = "https:" + ItemsSource.current.condition.icon;
 
