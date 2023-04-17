@@ -30,7 +30,7 @@ namespace weatherapp
 
         private async void search_city_button_ClickedAsync(object sender, EventArgs e)
         {
-            
+            result.IsVisible = false;
             string city = search_city.Text;
             string search_uri = $"http://api.weatherapi.com/v1/search.json?key={Api_Key}&q={city}";
             using (var client = new HttpClient())
@@ -54,16 +54,19 @@ namespace weatherapp
             
         }
 
-        private async void City_choseAsync(object sender, EventArgs e)
+        private async void City_choseAsync(object sender, ItemTappedEventArgs e)
         {
-            var button = (Button)sender;
-            chose_city_name = button.Text;
+            search_template city_data = (search_template)e.Item;
+
+            result.IsVisible = true;
+            chose_city_name = e.ToString();
             searched_city_list.IsVisible=false;
             
-            string uri = $"http://api.weatherapi.com/v1/current.json?key={Api_Key}&q={chose_city_name}";
+            string uri = $"http://api.weatherapi.com/v1/current.json?key={Api_Key}&q={city_data.name}";
 
             using (var client = new HttpClient())
             {
+
 
                 var result = await client.GetStringAsync(uri);
 
@@ -72,16 +75,28 @@ namespace weatherapp
                 ItemsSource = weather_data;
 
                 name.Text = ItemsSource.location.name;
-                region.Text = ItemsSource.location.region;
+                if(ItemsSource.location.region != null && ItemsSource.location.region != "")
+                {
+                    region.IsVisible = true;
+                    region.Text = ItemsSource.location.region;
+
+                }
+                else
+                {
+                    region.Text = "";
+                    region.IsVisible = false;
+
+                }
                 country.Text = ItemsSource.location.country;
                 temp_c.Text = ItemsSource.current.temp_c.ToString();
                 text.Text = ItemsSource.current.condition.text;
-                Console.WriteLine(ItemsSource.current.condition.text);
+
 
             }
 
 
         }
+
 
     }
 }
