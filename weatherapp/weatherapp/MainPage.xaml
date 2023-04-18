@@ -3,49 +3,53 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="weatherapp.MainPage"
              NavigationPage.HasNavigationBar="False"
-                          BackgroundImageSource="https://images.pexels.com/photos/2175952/pexels-photo-2175952.jpeg
-             "
+                          BackgroundImageSource="background.jpg"
              Padding="10,30,10,10"
              >
 
     <StackLayout>
         <Entry x:Name="search_city" Placeholder="Wyszukaj Miasto" Completed="search_city_button_ClickedAsync" TextColor="#262626" PlaceholderColor="#262626"/>
-        <Button x:Name="search_city_button" Clicked="search_city_button_ClickedAsync" Text="Search" TextColor="#262626" BackgroundColor="White" CornerRadius="20"/>
+        <Button x:Name="search_city_button" Clicked="search_city_button_ClickedAsync" Text="Search" TextColor="#99262626" BackgroundColor="#11262626" CornerRadius="20"/>
 
 
-        <ListView x:Name="searched_city_list" ItemTapped="City_choseAsync">
+
+        <ListView x:Name="searched_city_list" ItemTapped="City_choseAsync" HasUnevenRows="True" Margin="0,20,0,0">
+            
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding country}" TextColor="#262626" FontSize="Body" FontAttributes="Bold"/>
-                            <Label Text="{Binding name}"/>
 
+                        <StackLayout Padding="10" BackgroundColor="#11262626">
+                            <Label Text="{Binding country}" FontSize="16" FontAttributes="Bold" TextColor="Wheat"/>
+                            <Label Text="{Binding name}" FontSize="14" TextColor="Wheat" />
                         </StackLayout>
+
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
 
-        <StackLayout x:Name="result" >
-           
-            <Label x:Name="name" Text="" TextColor="#262626" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
-            <Label x:Name="regionlb"  Text="" TextColor="#262626" FontSize="Large" />
-            <Label x:Name="region"  Text="" />
-            <Label x:Name="countrylb"  Text="" TextColor="#262626" FontSize="Large" />
-            <Label x:Name="country"  Text="" />
-            <Label x:Name="temp_clb"  Text="" TextColor="#262626" FontSize="Large"/>
-            <Label x:Name="temp_c"  Text="" />
-            <Label x:Name="pressurelb"  Text="" TextColor="#262626" FontSize="Large"/>
-            <Label x:Name="pressure"  Text="" />
-            <Label x:Name="humiditylb"  Text="" TextColor="#262626" FontSize="Large"/>
-            <Label x:Name="humidity"  Text="" />
-            <Label x:Name="windlb" Text="" TextColor="#262626" FontSize="Large"/>
-            <Label x:Name="wind" Text="" />
-            <Label x:Name="textlb" Text="" TextColor="#262626" FontSize="Large"/>
-            <Label x:Name="text" Text="" />
-            <Image x:Name="weather_icon" Source="" />
+        <StackLayout x:Name="result"  Padding="10" BackgroundColor="#11262626">
+
+            <Label x:Name="name" Text="" TextColor="Wheat" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,0,0,5"/>
+            <Image x:Name="weather_icon" Source="" HeightRequest="90" Margin="-20" />
+            <Label x:Name="regionlb"  Text="" TextColor="Wheat"  />
+            <Label x:Name="region"  Text="" FontSize="Large" TextColor="Wheat"/>
+            <Label x:Name="countrylb"  Text="" TextColor="Wheat"  />
+            <Label x:Name="country"  Text="" FontSize="Large" TextColor="Wheat"/>
+            <Label x:Name="temp_clb"  Text="" TextColor="Wheat" />
+            <Label x:Name="temp_c"  Text="" FontSize="Large" TextColor="Wheat"/>
+            <Label x:Name="pressurelb"  Text="" TextColor="Wheat" />
+            <Label x:Name="pressure"  Text="" FontSize="Large" TextColor="Wheat"/>
+            <Label x:Name="humiditylb"  Text="" TextColor="Wheat" />
+            <Label x:Name="humidity"  Text="" FontSize="Large" TextColor="Wheat"/>
+            <Label x:Name="windlb" Text="" TextColor="Wheat" />
+            <Label x:Name="wind" Text="" FontSize="Large" TextColor="Wheat"/>
+            <Label x:Name="textlb" Text="" TextColor="Wheat" />
+            <Label x:Name="text" Text="" FontSize="Large" TextColor="Wheat"/>
+            
         </StackLayout>
 
 

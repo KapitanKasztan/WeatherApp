@@ -34,17 +34,24 @@ namespace weatherapp
             string search_uri = $"http://api.weatherapi.com/v1/search.json?key={Api_Key}&q={city}";
             using (var client = new HttpClient())
             {
-   
-                var result = await client.GetStringAsync(search_uri);
-
-
-                List<search_template> city_list = JsonConvert.DeserializeObject<List<search_template>>(result);
-                if (city_list.Count > 0)
+                try
                 {
-                    searched_city_list.IsVisible = true;
-                    searched_city_list.ItemsSource = city_list;
+                    var result = await client.GetStringAsync(search_uri);
 
+
+                    List<search_template> city_list = JsonConvert.DeserializeObject<List<search_template>>(result);
+                    if (city_list.Count > 0)
+                    {
+                        searched_city_list.IsVisible = true;
+                        searched_city_list.ItemsSource = city_list;
+
+                    }
                 }
+                catch (System.Net.Http.HttpRequestException)
+                {
+                    
+                }
+                
 
                 
                 
@@ -94,13 +101,13 @@ namespace weatherapp
                 countrylb.Text = "Country:";
                 country.Text = ItemsSource.location.country;
                 temp_clb.Text = "Temperature:";
-                temp_c.Text = ItemsSource.current.temp_c.ToString();
+                temp_c.Text = ItemsSource.current.temp_c.ToString() + "°C";
                 pressurelb.Text = "Presure:";
-                pressure.Text = ItemsSource.current.pressure_mb.ToString();
+                pressure.Text = ItemsSource.current.pressure_mb.ToString() + "hPa";
                 humiditylb.Text = "Humidity:";
-                humidity.Text = ItemsSource.current.humidity.ToString();
+                humidity.Text = ItemsSource.current.humidity.ToString() + "%";
                 windlb.Text = "Wind:";
-                wind.Text = ItemsSource.current.wind_kph.ToString();
+                wind.Text = ItemsSource.current.wind_kph.ToString() + "km/h";
                 textlb.Text = "Weather:";
                 text.Text = ItemsSource.current.condition.text;
                 weather_icon.Source = "https:" + ItemsSource.current.condition.icon;
