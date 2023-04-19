@@ -4,14 +4,19 @@
              x:Class="weatherapp.login_page"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
+        
         <StackLayout VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand">
-            <Entry 
+            <StackLayout  
+                HorizontalOptions="CenterAndExpand">
+                <Entry 
                    x:Name="api_entry"
                    Placeholder="Wprowadź klucz api"
                     Completed="sendapiAsync"/>
-            <Button Clicked="sendapiAsync" Text="Enter"/>
-            <Label IsVisible="false" Text="" x:Name="error_label" VerticalTextAlignment="Center" TextColor="Red" FontSize="Medium" Padding="10"/>
+                <Button Clicked="sendapiAsync" Text="Enter"/>
+                <Label IsVisible="false" Text="" x:Name="error_label" VerticalTextAlignment="Center" TextColor="Red" FontSize="Medium" Padding="10"/>
+            </StackLayout>
+            <Label IsVisible="false" Text="" x:Name="link_label" VerticalTextAlignment="Center" TextColor="Blue" FontSize="Medium" Padding="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

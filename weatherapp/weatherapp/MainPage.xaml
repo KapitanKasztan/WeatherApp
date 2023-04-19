@@ -14,7 +14,7 @@
 
 
         <ListView x:Name="searched_city_list" ItemTapped="City_choseAsync" HasUnevenRows="True" Margin="0,20,0,0">
-            
+
             
             <ListView.ItemTemplate>
                 <DataTemplate>

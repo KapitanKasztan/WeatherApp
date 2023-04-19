@@ -27,7 +27,7 @@ namespace weatherapp
             if (current != NetworkAccess.Internet)
             {
                 error_label.IsVisible = true;
-                error_label.Text = "API key not valid";
+                error_label.Text = "No Internet Access";
             }
             else
             {
@@ -39,12 +39,21 @@ namespace weatherapp
                     {
                         var result = await client.GetStringAsync(search_uri);
                         error_label.IsVisible = false;
+                        link_label.IsVisible = false;
                         await Navigation.PushAsync(new MainPage());
                     }
                     catch (System.Net.Http.HttpRequestException)
                     {
                         error_label.IsVisible = true;
+                        link_label.IsVisible = true;
                         error_label.Text = "API key not valid";
+                        link_label.Text = "Click here to go to weatherapi.com";
+                        var tapGestureRecognizer = new TapGestureRecognizer();
+                        tapGestureRecognizer.Tapped += async (s, e2) => {
+                            
+                            await Launcher.OpenAsync("https://www.weatherapi.com/");
+                        };
+                        link_label.GestureRecognizers.Add(tapGestureRecognizer);
                     }
 
 
