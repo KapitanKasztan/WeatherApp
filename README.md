@@ -1,7 +1,7 @@
 
 # WeatherApp
 
-Aplikacja mobilna WeatherApp to aplikacja pogodowa, która wykorzystuje weatherapi.com jako źródło informacji o pogodzie. Aplikacja została napisana w technologii Xamarin, co pozwala na jej uruchamianie na różnych platformach mobilnych, takich jak Android i iOS.
+Aplikacja mobilna WeatherApp to aplikacja pogodowa, która wykorzystuje weatherapi.com jako źródło informacji o pogodzie. Aplikacja została napisana w technologii Xamarin, co pozwala na jej uruchamianie na różnych platformach mobilnych, takich jak Android.
 
 ## Funkcjonalności
 
